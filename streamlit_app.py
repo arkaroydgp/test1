@@ -1,6 +1,5 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
@@ -18,8 +17,9 @@ st.write('The Name on your Smoothie will be!', name_on_order)
 #                      ('Banana','Strwawberries','Peaches'))                     )
 #st.write('Your favorite food is ', option)
 #dataframe fruit list from table
-
-session = get_active_session()
+####----added for SF connection------####
+cnx = st.connection("snowflake")
+session = cnx.session()
 my_dataframe = session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col('FRUIT_NAME'))
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
