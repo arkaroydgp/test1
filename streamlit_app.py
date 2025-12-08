@@ -7,7 +7,7 @@ st.title(f":cup_with_straw: Customize your Smoothie! :cup_with_straw:")
 st.write(
   """Choose the fruits you want in your Smoothie
   
-  :apple: :banana: :orange:  :Figs: :strawberry:
+  :apple: :banana:  :strawberry:
   """
 )
 
