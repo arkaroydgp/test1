@@ -26,8 +26,7 @@ my_dataframe = session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col('FRUIT
 #convert snowflake dataframe to panda dataframe
 pd_df=my_dataframe.to_pandas()
 #st.dataframe(pd_df)
-st.write(pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON')
-st.stop()
+#st.stop()
 
 ingredient_list = st.multiselect("Choose upto 5 ingredients:", my_dataframe,max_selections=5)
 
@@ -39,8 +38,7 @@ if ingredient_list:
     ingredient_string = ''
     for fruit_chosen in ingredient_list:
         ingredient_string += fruit_chosen + ' '
-        search_on=pd_df.loc
-        st.subheader(fruit_chosen + 'Nutrition Information')
+        st.write(pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON')        st.subheader(fruit_chosen + 'Nutrition Information')
         #New section to give smoothie front nutrition details
         smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/"+fruit_chosen)
         #st.text(smoothiefroot_response.json())
