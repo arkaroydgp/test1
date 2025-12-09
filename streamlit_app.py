@@ -23,6 +23,9 @@ cnx = st.connection("snowflake")
 session = cnx.session()
 my_dataframe = session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col('FRUIT_NAME'),col('SEARCH_ON'))
 st.dataframe(data=my_dataframe, use_container_width=True)
+#convert snowflake dataframe to panda dataframe
+pd_df=my_dataframe.pandas()
+st.dataframe(pd_df)
 st.stop()
 
 ingredient_list = st.multiselect("Choose upto 5 ingredients:", my_dataframe,max_selections=5)
