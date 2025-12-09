@@ -45,4 +45,4 @@ if ingredient_list:
         st.success('Your Smoothie is Ordered!', icon="✅")
 #New section to give smoothie front nutrition details
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response)
+st.text(smoothiefroot_response.json)
