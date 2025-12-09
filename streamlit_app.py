@@ -26,7 +26,7 @@ my_dataframe = session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col('FRUIT
 #convert snowflake dataframe to panda dataframe
 pd_df=my_dataframe.to_pandas()
 #st.dataframe(pd_df)
-st.write(pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'])
+st.write(pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON')
 st.stop()
 
 ingredient_list = st.multiselect("Choose upto 5 ingredients:", my_dataframe,max_selections=5)
