@@ -21,7 +21,7 @@ st.write('The Name on your Smoothie will be!', name_on_order)
 ####----added for SF connection------####
 cnx = st.connection("snowflake")
 session = cnx.session()
-my_dataframe = session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col('FRUIT_NAME'),col(SEARCH_ON))
+my_dataframe = session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col('FRUIT_NAME'),col('SEARCH_ON'))
 st.dataframe(data=my_dataframe, use_container_width=True)
 st.stop()
 
